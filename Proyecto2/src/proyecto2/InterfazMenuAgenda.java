@@ -13,14 +13,15 @@ import javafx.scene.layout.VBox;
 
 public class InterfazMenuAgenda {
     
-    // InterfazCreditosYAcercaDe ic = new InterfazCreditosYAcercaDe();
-    InterfazContactos iCon = new InterfazContactos();
-    
 //    InterfazCréditosAcercaDe ic= new InterfazCréditosAcercaDe();
-//    InterfazContacto iCon= new InterfazContacto();
+    InterfazContactos iCon= new InterfazContactos();
     public Scene getEscenaMenu (){
+      
+        Scene MenuAgenda = new Scene(new VBox(), 300, 250);
+        VBox vB_ventanas= new VBox();
         
-      Scene escena = new Scene (new VBox(), 800,600);
+        
+        MenuBar mB_Menu= new MenuBar(); //Barra del menú
         
         VBox vB_Ventanas = new VBox();  // gestor de ventanas
         
@@ -91,6 +92,7 @@ public class InterfazMenuAgenda {
         
         // se agregan todos los submenu al menu contactos
         m_Contactos.getItems().addAll(mI_InsertarContactos,mI_EliminarContactos,ml_ModificarContactos,ml_BuscarContactos);
+
         
         // fin menu Contactos
         
@@ -124,10 +126,9 @@ public class InterfazMenuAgenda {
         
         // se agregan todos los menu al MenuBar
         mb_Menu.getMenus().addAll(m_Sistema,m_Contactos,m_Mantenimiento, m_Reportes); 
-        ((VBox)escena.getRoot()).getChildren().addAll(mb_Menu, vB_Ventanas);
+        ((VBox)MenuAgenda.getRoot()).getChildren().addAll(mB_Menu, vB_ventanas);
         
-        
-        return escena;
+        return MenuAgenda;
     }
 }    
     
