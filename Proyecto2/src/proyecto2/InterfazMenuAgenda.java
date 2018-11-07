@@ -1,4 +1,3 @@
-
 package proyecto2;
 
 import javafx.application.Platform;
@@ -18,14 +17,12 @@ public class InterfazMenuAgenda {
     public Scene getEscenaMenu (){
       
         Scene MenuAgenda = new Scene(new VBox(), 300, 250);
-        VBox vB_ventanas= new VBox();
         
         
         MenuBar mB_Menu= new MenuBar(); //Barra del menú
         
         VBox vB_Ventanas = new VBox();  // gestor de ventanas
-        
-        MenuBar  mb_Menu = new MenuBar();
+       
         
         // Menu Sistema
         Menu m_Sistema = new Menu("Sistema");
@@ -131,4 +128,4 @@ public class InterfazMenuAgenda {
         return MenuAgenda;
     }
 }    
-    
+
