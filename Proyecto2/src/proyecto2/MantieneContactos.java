@@ -15,14 +15,14 @@ public class MantieneContactos {
         this.nombreArchivo=nombreArchivo;
     }
     
-    public void insertarContacto(String nombreContacto, String fechaNacimiento){
+    public void insertarContacto(String nombreContacto, String apellidos, String fechaNacimiento, String telefono, String direccion, String correo){
         File archivo= new File(nombreArchivo);
         
         try{
             
         FileOutputStream fos= new FileOutputStream(archivo, true);
         PrintStream ps = new  PrintStream(fos);
-        ps.println(nombreContacto+";"+fechaNacimiento);
+        ps.println(nombreContacto+";"+apellidos+";"+fechaNacimiento+";"+telefono+";"+direccion+";"+correo);
         }// Fin try
         catch(FileNotFoundException fnfe){
             JOptionPane.showMessageDialog(null, "Problemas al escribir en el archivo");
