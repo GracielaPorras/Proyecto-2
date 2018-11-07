@@ -19,6 +19,7 @@ public class InterfazMenuAgenda {
         Scene MenuAgenda = new Scene(new VBox(), 300, 250);
         VBox vB_ventanas= new VBox();
         
+        
         MenuBar mB_Menu= new MenuBar(); //Barra del menú
         
         //Menú de Sistema
