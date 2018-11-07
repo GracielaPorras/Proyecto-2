@@ -16,9 +16,8 @@ public class InterfazMenuAgenda {
 //    InterfazCréditosAcercaDe ic= new InterfazCréditosAcercaDe();
     InterfazContactos iCon= new InterfazContactos();
     public Scene getEscenaMenu (){
-        Scene MenuAgenda = new Scene(new VBox(), 300, 250);
+        Scene MenuAgenda = new Scene(new VBox(), 500, 500);
         VBox vB_ventanas= new VBox();
-        
         
         MenuBar mB_Menu= new MenuBar(); //Barra del menú
         
@@ -52,7 +51,7 @@ public class InterfazMenuAgenda {
         MenuItem mI_insertarContactos = new MenuItem("Insertar",new ImageView(new Image("insertar.png")));
         mI_Contactos.setOnAction((event)->{
             vB_ventanas.getChildren().clear();
-//            vB_ventanas.getChildren().addAll(iCon.getInsertarInterfaz());
+            vB_ventanas.getChildren().addAll(iCon.getAgregarInterfaz());
         });
         
         mI_Contactos.getItems().addAll(mI_insertarContactos);
