@@ -64,5 +64,6 @@ public class InterfazMenu {
         ((VBox)escena.getRoot()).getChildren().addAll(mB_Menu, vB_ventanas);
         
         return escena;
+        
     }
 }
