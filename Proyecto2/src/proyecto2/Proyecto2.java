@@ -14,11 +14,10 @@ public class Proyecto2 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        InterfazMenuAgenda ima= new InterfazMenuAgenda();
         
-//        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-//        primaryStage.setScene(scene);
+        primaryStage.setTitle("Agenda");
+        primaryStage.setScene(ima.getEscenaMenu());
         primaryStage.show();
     }
 

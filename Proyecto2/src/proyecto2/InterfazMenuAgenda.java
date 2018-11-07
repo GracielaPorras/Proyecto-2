@@ -13,12 +13,10 @@ import javafx.scene.layout.VBox;
 
 public class InterfazMenuAgenda {
     
-
-public class InterfazMenu {
 //    InterfazCréditosAcercaDe ic= new InterfazCréditosAcercaDe();
-//    InterfazContacto iCon= new InterfazContacto();
+    InterfazContactos iCon= new InterfazContactos();
     public Scene getEscenaMenu (){
-        Scene escena = new Scene(new VBox(), 300, 250);
+        Scene MenuAgenda = new Scene(new VBox(), 300, 250);
         VBox vB_ventanas= new VBox();
         
         MenuBar mB_Menu= new MenuBar(); //Barra del menú
@@ -61,9 +59,9 @@ public class InterfazMenu {
        
         mB_Menu.getMenus().addAll(m_Sistema, mI_Contactos);//Agregar componentes de la Barra Menú
         
-        ((VBox)escena.getRoot()).getChildren().addAll(mB_Menu, vB_ventanas);
+        ((VBox)MenuAgenda.getRoot()).getChildren().addAll(mB_Menu, vB_ventanas);
         
-        return escena;
+        return MenuAgenda;
         
     }
 }
