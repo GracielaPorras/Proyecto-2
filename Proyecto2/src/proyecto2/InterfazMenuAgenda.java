@@ -12,23 +12,19 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 
 public class InterfazMenuAgenda {
-    
-//    InterfazCréditosAcercaDe ic= new InterfazCréditosAcercaDe();
+     InterfazReporteAgenda ira = new InterfazReporteAgenda();
+    InterfazCreditosYAcercaDe ic= new InterfazCreditosYAcercaDe();
     InterfazContactos iCon= new InterfazContactos();
     public Scene getEscenaMenu (){
       
-        Scene MenuAgenda = new Scene(new VBox(), 300, 250);
-        VBox vB_ventanas= new VBox();
+        Scene MenuAgenda = new Scene(new VBox(), 800, 700);
         
-        
-        MenuBar mB_Menu= new MenuBar(); //Barra del menú
-        
-        VBox vB_Ventanas = new VBox();  // gestor de ventanas
-        
-        MenuBar  mb_Menu = new MenuBar();
+        MenuBar mb_Menu = new MenuBar();
+        VBox vB_Ventanas = new VBox();
         
         // Menu Sistema
         Menu m_Sistema = new Menu("Sistema");
+        m_Sistema.setAccelerator(KeyCombination.keyCombination("Ctrl+S"));
         
         // SubMenu del Sistema
     
@@ -37,7 +33,7 @@ public class InterfazMenuAgenda {
         mi_AcercaDE.setOnAction((event)->{ 
             
             vB_Ventanas.getChildren().clear();
-       //     vB_Ventanas.getChildren().addAll(ic.getInterfazAcercaDe());
+            vB_Ventanas.getChildren().addAll(ic.getInterfazAcercaDe());
             
         }); // fin AcercaDe
       
@@ -46,7 +42,7 @@ public class InterfazMenuAgenda {
         mi_Creditos.setOnAction((event)-> {
           
         vB_Ventanas.getChildren().clear();   // quita las ventanas
-       // vB_Ventanas.getChildren().addAll(ic.getInterfazCreditos());
+        vB_Ventanas.getChildren().addAll(ic.getInterfazCreditos());
         
         }); // fin Creditos
         
@@ -64,16 +60,19 @@ public class InterfazMenuAgenda {
         // Submenu de Contactos
         
         MenuItem mI_InsertarContactos = new MenuItem("Insertar", new ImageView( new Image("insertar.png")));
+        mI_InsertarContactos.setAccelerator( KeyCombination.keyCombination("Ctrl+I"));
           mI_InsertarContactos.setOnAction((event)->{
             vB_Ventanas.getChildren().clear();
-            vB_Ventanas.getChildren().addAll(iCon.getInsertarInterfaz());
+            vB_Ventanas.getChildren().addAll(iCon.getAgregarInterfaz());
             
         }); // fin insertar contactos
         
         
         // Submenu de contactos, se eliminan los contactos del archivo
         MenuItem mI_EliminarContactos = new MenuItem("Eliminar Contactos", new ImageView( new Image ("eliminar.png")));  
+        mI_EliminarContactos.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
         
+
         
         
         
@@ -94,6 +93,7 @@ public class InterfazMenuAgenda {
         m_Contactos.getItems().addAll(mI_InsertarContactos,mI_EliminarContactos,ml_ModificarContactos,ml_BuscarContactos);
 
         
+        
         // fin menu Contactos
         
         // Se crea el Menu Mantenimiento
@@ -108,25 +108,34 @@ public class InterfazMenuAgenda {
         
         // fin menu Mantenimiento
         
+        // Reportes
         
-        // se crea el menu reportes 
-        Menu m_Reportes = new Menu("Reportes");
+        Menu m_reportes = new Menu("Reportes");
+        // Submenu de reportes
+     
+        Menu mI_reportes = new Menu("", new ImageView(new Image("reportes.png")));
         
-        // SubMenu del menu Reportes, se puede observar toda la agenda de contactos
-        MenuItem mI_VerAgenda = new MenuItem("Ver Agenda", new ImageView( new Image ("ver.png")));
-        
-        
-        
-        
-        // SubMenu del Menu Reportes, se obtiene un listado de contactos por mes de nacimiento 
-        MenuItem mI_ListadoMesNacimiento = new MenuItem("Listado de contactos por mes de nacimiento");
+        m_reportes.getItems().addAll(mI_reportes);
         
         
-        m_Reportes.getItems().addAll(mI_VerAgenda,mI_ListadoMesNacimiento);
+        // SubMenu del submenu de reportes
+        
+       MenuItem mI_VerAgenda = new MenuItem("Ver Agenda Telefonica", new ImageView( new Image ("ver.png")));
+       
+       mI_VerAgenda.setOnAction((event)->{
+           
+           vB_Ventanas.getChildren().clear();
+           vB_Ventanas.getChildren().addAll(ira.getInterfazAgenda());
+           
+       });
+        
+         MenuItem mI_ListadoMesNacimiento = new MenuItem("Listado de contactos por mes de nacimiento");
+        
+        mI_reportes.getItems().addAll(mI_VerAgenda,mI_ListadoMesNacimiento);
         
         // se agregan todos los menu al MenuBar
-        mb_Menu.getMenus().addAll(m_Sistema,m_Contactos,m_Mantenimiento, m_Reportes); 
-        ((VBox)MenuAgenda.getRoot()).getChildren().addAll(mB_Menu, vB_ventanas);
+        mb_Menu.getMenus().addAll(m_Sistema,m_Contactos,m_Mantenimiento, m_reportes); 
+        ((VBox)MenuAgenda.getRoot()).getChildren().addAll(mb_Menu, vB_Ventanas);
         
         return MenuAgenda;
     }
